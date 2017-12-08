@@ -11,13 +11,10 @@
     <script src="/static/js/jquery.js"></script>
     <script src="/static/js/pintuer.js"></script>
     <style>
-        .left {
-            float: right;
+        #tip {
+            color: red;
+            margin: 0px 30px 0px 30px;
         }
-        #toAdmin{
-            margin: 0px 10px 10px 0px;
-        }
-
     </style>
 </head>
 <body>
@@ -31,6 +28,9 @@
             <form action="{:url('Login/doLogin')}" method="post">
                 <div class="panel loginbox clear">
                     <div class="text-center margin-big padding-big-top"><h1>后台管理中心</h1></div>
+                    {present name="tip"}
+                    <div id="tip">账号或者密码错误</div>
+                    {/present}
                     <div class="panel-body" style="padding:30px; padding-bottom:10px; padding-top:10px;">
                         <div class="form-group">
                             <div class="field field-icon-right">
@@ -47,9 +47,8 @@
                             </div>
                         </div>
                     </div>
-                    <div style="padding:20px 10px 20px 10px;"><input type="submit"
-                                                                     class="button button-block bg-main text-big input-big"
-                                                                     value="登录">
+                    <div style="padding:20px 10px 20px 10px;">
+                        <input type="submit" class="button button-block bg-main text-big input-big" value="登录">
                     </div>
                 </div>
             </form>
@@ -58,9 +57,5 @@
 </div>
 
 </body>
-<script>
-    $("#toAdmin").click(function () {
 
-    })
-</script>
 </html>

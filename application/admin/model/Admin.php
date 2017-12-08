@@ -8,6 +8,7 @@ use think\Model;
  * Created by PhpStorm.
  * User: user
  * Date: 2017/12/8
+ *
  * Time: 16:28
  */
 class Admin extends Model

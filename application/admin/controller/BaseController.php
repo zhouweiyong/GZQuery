@@ -6,7 +6,7 @@
  * Time: 13:37
  */
 
-namespace app\index\controller;
+namespace app\admin\controller;
 
 
 use think\Controller;
@@ -19,6 +19,7 @@ class BaseController extends Controller
     protected function _initialize()
     {
         $userName = Session::get("admin");
+        dump($userName);
         if (!isset($userName)) {
             $this->redirect("Login/login");
         } else {

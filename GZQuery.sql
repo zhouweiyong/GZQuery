@@ -24,7 +24,7 @@ CREATE TABLE `gz_user` (
   ENGINE = MyISAM
   DEFAULT CHARACTER SET = utf8;
 
-
+# 表头
 CREATE TABLE gz_header (
   id    INT(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
   gtime CHAR(6) NOT NULL,
@@ -62,7 +62,7 @@ CREATE TABLE gz_header (
   ENGINE = MyISAM
   DEFAULT CHARACTER SET = utf8;
 
-
+# 工资数据
 CREATE TABLE gz_data (
   id    INT(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
   gtime CHAR(6) NOT NULL,
@@ -100,7 +100,7 @@ CREATE TABLE gz_data (
   ENGINE = MyISAM
   DEFAULT CHARACTER SET = utf8;
 
-
+# 保存表单列数
 CREATE TABLE gz_num (
   id    INT(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
   gtime CHAR(6)    NOT NULL,
@@ -109,7 +109,7 @@ CREATE TABLE gz_num (
   ENGINE = MyISAM
   DEFAULT CHARACTER SET = utf8;
 
-
+# 保存用户登录时间
 CREATE TABLE gz_time (
   id        INT(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
   userName  VARCHAR(80) NOT NULL,
@@ -117,5 +117,3 @@ CREATE TABLE gz_time (
 )
   ENGINE = MyISAM
   DEFAULT CHARACTER SET = utf8;
-
-INSERT INTO gz_header (gtime, col1) VALUES ('201703', '邮箱');

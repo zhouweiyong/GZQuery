@@ -1,10 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-cn">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="renderer" content="webkit">
+    <title>薪资查询系统</title>
+    <link rel="stylesheet" href="/static/css/pintuer.css">
+    <link rel="stylesheet" href="/static/css/admin.css">
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/pintuer.js"></script>
+    <style>
+        body {
+            background: #2e6da4;
+        }
+
+        #header {
+            background: white;
+            width: 900px;
+            height: 80px;
+            border: 1px solid black;
+            margin: 0 auto;
+        }
+
+        #header h3 {
+            width: 200px;
+            margin-top: 20px;
+            margin-left: 10px;
+        }
+
+        #header ul {
+            float: right;
+            margin-right: 20px;
+        }
+
+        #header li {
+            float: left;
+            margin-left: 50px;
+        }
+
+        #header .v_name {
+            color: red;
+        }
+
+        #content {
+            width: 900px;
+            height: 100px;
+            margin: 10px auto;
+        }
+
+    </style>
 </head>
 <body>
-hellooo indexllll
+<div id="header">
+    <h3>薪资查询系统</h3>
+    <ul>
+        <li>欢迎<span class="v_name">{$realName}</span>登录系统</li>
+        <li><a href="{:url('Login/logout')}">退出</a></li>
+    </ul>
+</div>
+<div id="content">
+    <div class="panel admin-panel">
+        <div class="panel-head"><strong><span class="icon-list"></span> 工资单列表</strong></div>
+        <table class="table table-hover text-center">
+            {volist name="list" id="data"}
+            <tr>
+                <td>{$data.gtime|substr=0,4}年{$data.gtime|substr=4,7}月工资单</td>
+                <td><a href="{:url('Index/detail')}?userName={$userName}&gtime={$data.gtime}" target="_blank">查看</a></td>
+            </tr>
+            {/volist}
+        </table>
+    </div>
 </body>
 </html>

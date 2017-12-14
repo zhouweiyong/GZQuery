@@ -42,6 +42,7 @@ class LoginController extends Controller
 
     function logout()
     {
-
+        Session::delete("admin");
+        $this->redirect("Index/index");
     }
 }

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="renderer" content="webkit">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/css/pintuer.css">
+    <link rel="stylesheet" href="/static/css/admin.css">
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/pintuer.js"></script>
+    <script src="/static/js/datepicker.js"></script>
+</head>
+<body>
+<div class="panel admin-panel">
+    <div class="panel-head"><strong><span class="icon-reorder"></span> 全部员工信息</strong></div>
+    <div class="padding border-bottom">
+        <form id="form1" action="{:url('User/show')}" method="post">
+            <ul class="search" style="padding-left:10px;">
+                <li>搜索：</li>
+                <li>
+                    <input type="text" placeholder="请员工姓名" name="realName" class="input"
+                           style="width:250px; line-height:17px;display:inline-block"/>
+                    <a href="javascript:void(0)" class="button border-main icon-search" id="search"> 搜索</a>
+                </li>
+            </ul>
+        </form>
+    </div>
+    <table class="table table-hover text-center">
+        <tr>
+            <th width="20%">姓名</th>
+            <th width="20%">用户名</th>
+            <th width="10%">密码</th>
+            <th width="15%">操作</th>
+        </tr>
+        {volist name="list" id="user"}
+        <tr>
+            <td>{$user.realName}</td>
+            <td>{$user.userName}</td>
+            <td>{$user.passWord}</td>
+            <td><a class="button border-main" href="{:url('User/showTime')}?userName={$user.userName}&realName={$user.realName}"
+                   target="_blank"><span
+                    class="icon-edit"></span>查看登录时间</a>
+                <a style="margin-left: 10px" class="button border-red"
+                   href="{:url('User/del')}?userName={$user.userName}"><span class="icon-trash-o"></span>删除</a></td>
+        </tr>
+        {/volist}
+    </table>
+</div>
+</body>
+<script>
+    $(function () {
+        $("#search").click(function () {
+            $("#form1").submit();
+        })
+    })
+</script>
+</html>

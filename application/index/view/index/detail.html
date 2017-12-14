@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{$gtime|substr=0,4}年{$gtime|substr=4,7}月工资数据</title>
+    <link rel="stylesheet" href="/static/css/pintuer.css">
+    <link rel="stylesheet" href="/static/css/admin.css">
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/pintuer.js"></script>
+    <script src="/static/js/datepicker.js"></script>
+    <style>
+        table th {
+            white-space: nowrap;
+        }
+
+        table td {
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+<div class="panel admin-panel" style="min-width: 100px">
+    <div class="panel-head"><strong><span class="icon-list"></span>{$gtime|substr=0,4}年{$gtime|substr=4,7}月工资数据</strong>
+    </div>
+    <table class="table table-hover text-center">
+        <tr>
+            <?php
+                for($i=0;$i<$num;$i++){
+            ?>
+            <th><?php echo $header["col".$i]?></th>
+            <?php }?>
+        </tr>
+        <tr>
+            <?php for($j=0;$j<$num;$j++){?>
+            <td><?php echo $data["col".$j]?></td>
+            <?php }?>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

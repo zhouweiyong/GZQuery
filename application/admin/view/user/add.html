@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="renderer" content="webkit">
+    <title>Title</title>
+    <link rel="stylesheet" href="/static/css/pintuer.css">
+    <link rel="stylesheet" href="/static/css/admin.css">
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/pintuer.js"></script>
+    <script src="/static/js/datepicker.js"></script>
+</head>
+<body>
+<div class="panel admin-panel">
+    <div class="panel-head"><strong><span class="icon-edit"></span> 批量导入员工信息</strong></div>
+    <div class="body-content">
+        <form id="all" method="post" action="{:url('User/daAddAll')}" class="form-x" enctype="multipart/form-data">
+            <label style="margin-left: 10px">选择Excel表单：</label>
+            <input type="file"
+                   accept=".csv, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                   name="user">
+            <button id="tj" class="button bg-blue" type="button"> 提交</button>
+        </form>
+    </div>
+
+</div>
+<div class="panel admin-panel margin-top">
+    <div class="panel-head"><strong><span class="icon-edit"></span> 注册员工信息</strong></div>
+    <div class="body-content">
+        <div class="body-content">
+            <form id="single" method="post" action="{:url('User/doAdd')}" class="form-x">
+                <div class="form-group">
+                    <div class="label">
+                        <label>员工姓名：</label>
+                    </div>
+                    <div class="field">
+                        <input type="text" class="input w50" value="" name="realName" data-validate="required:员工姓名"
+                               placeholder="请输入员工姓名"/>
+                        <div class="tips"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="label">
+                        <label>用户名(邮箱)：</label>
+                    </div>
+                    <div class="field">
+                        <input type="text" class="input w50" value="" name="email" data-validate="required:用户名"
+                               placeholder="请输入员工邮箱"/>
+                        <div class="tips"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="label">
+                        <label></label>
+                    </div>
+                    <div class="field">
+                        <button id="create" class="button bg-main icon-check-square-o" type="button"> 生成用户</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $(function () {
+        $("#tj").click(function () {
+            if ($("input[name=user]").val() == "") {
+                alert("请选择含有用户信息的Excel表单");
+                $("input[name=user]").focus();
+                return false;
+            }
+            $("#all").submit();
+        })
+        $("#create").click(function () {
+            if ($("input[name=realName]").val() == "") {
+                alert("请输入员工姓名");
+                $("input[name=realName]").focus();
+                return false;
+            }
+            if ($("input[name=email]").val() == "") {
+                alert("请输入员工邮箱");
+                $("input[name=email]").focus();
+                return false;
+            }
+            $("#single").submit();
+        })
+    })
+</script>
+</html>

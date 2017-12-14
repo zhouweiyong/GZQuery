@@ -17,7 +17,10 @@
         #toAdmin{
             margin: 0px 10px 10px 0px;
         }
-
+        #tip {
+            color: red;
+            margin: 0px 30px 0px 30px;
+        }
     </style>
 </head>
 <body>
@@ -31,6 +34,9 @@
             <form action="{:url('Login/doLogin')}" method="post">
                 <div class="panel loginbox clear">
                     <div class="text-center margin-big padding-big-top"><h1>伟仕薪资查询系统</h1></div>
+                    {present name="tip"}
+                    <div id="tip">账号或者密码错误</div>
+                    {/present}
                     <div class="panel-body" style="padding:30px; padding-bottom:10px; padding-top:10px;">
                         <div class="form-group">
                             <div class="field field-icon-right">

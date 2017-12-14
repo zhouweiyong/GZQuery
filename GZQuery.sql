@@ -15,11 +15,107 @@ INSERT INTO gz_admin (admin_name, admin_pwd) VALUES
 
 # 员工用户名和密码
 CREATE TABLE `gz_user` (
-  `id`         INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `user_name`  VARCHAR(80)      NOT NULL,
-  `user_pwd`   VARCHAR(20)      NOT NULL,
-  `user_email` VARCHAR(80)      NOT NULL,
+  `id`       INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `userName` VARCHAR(80)      NOT NULL,
+  `realName` CHAR(20)         NOT NULL,
+  `passWord` CHAR(8)          NOT NULL,
   PRIMARY KEY (`id`)
 )
   ENGINE = MyISAM
   DEFAULT CHARACTER SET = utf8;
+
+
+CREATE TABLE gz_header (
+  id    INT(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  gtime CHAR(6) NOT NULL,
+  col0  VARCHAR(30),
+  col1  VARCHAR(30),
+  col2  VARCHAR(30),
+  col3  VARCHAR(30),
+  col4  VARCHAR(30),
+  col5  VARCHAR(30),
+  col6  VARCHAR(30),
+  col7  VARCHAR(30),
+  col8  VARCHAR(30),
+  col9  VARCHAR(30),
+  col10 VARCHAR(30),
+  col11 VARCHAR(30),
+  col12 VARCHAR(30),
+  col13 VARCHAR(30),
+  col14 VARCHAR(30),
+  col15 VARCHAR(30),
+  col16 VARCHAR(30),
+  col17 VARCHAR(30),
+  col18 VARCHAR(30),
+  col19 VARCHAR(30),
+  col20 VARCHAR(30),
+  col21 VARCHAR(30),
+  col22 VARCHAR(30),
+  col23 VARCHAR(30),
+  col24 VARCHAR(30),
+  col25 VARCHAR(30),
+  col26 VARCHAR(30),
+  col27 VARCHAR(30),
+  col28 VARCHAR(30),
+  col29 VARCHAR(30)
+)
+  ENGINE = MyISAM
+  DEFAULT CHARACTER SET = utf8;
+
+
+CREATE TABLE gz_data (
+  id    INT(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  gtime CHAR(6) NOT NULL,
+  col0  VARCHAR(80),
+  col1  VARCHAR(30),
+  col2  VARCHAR(30),
+  col3  VARCHAR(30),
+  col4  VARCHAR(30),
+  col5  VARCHAR(30),
+  col6  VARCHAR(30),
+  col7  VARCHAR(30),
+  col8  VARCHAR(30),
+  col9  VARCHAR(30),
+  col10 VARCHAR(30),
+  col11 VARCHAR(30),
+  col12 VARCHAR(30),
+  col13 VARCHAR(30),
+  col14 VARCHAR(30),
+  col15 VARCHAR(30),
+  col16 VARCHAR(30),
+  col17 VARCHAR(30),
+  col18 VARCHAR(30),
+  col19 VARCHAR(30),
+  col20 VARCHAR(30),
+  col21 VARCHAR(30),
+  col22 VARCHAR(30),
+  col23 VARCHAR(30),
+  col24 VARCHAR(30),
+  col25 VARCHAR(30),
+  col26 VARCHAR(30),
+  col27 VARCHAR(30),
+  col28 VARCHAR(30),
+  col29 VARCHAR(30)
+)
+  ENGINE = MyISAM
+  DEFAULT CHARACTER SET = utf8;
+
+
+CREATE TABLE gz_num (
+  id    INT(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  gtime CHAR(6)    NOT NULL,
+  num   TINYINT(3) NOT NULL
+)
+  ENGINE = MyISAM
+  DEFAULT CHARACTER SET = utf8;
+
+
+CREATE TABLE gz_time (
+  id        INT(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  userName  VARCHAR(80) NOT NULL,
+  loginTime INT(10)     NOT NULL
+)
+  ENGINE = MyISAM
+  DEFAULT CHARACTER SET = utf8;
+
+INSERT INTO gz_header (gtime, col1) VALUES ('201703', '邮箱');

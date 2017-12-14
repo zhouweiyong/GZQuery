@@ -18,12 +18,11 @@ class BaseController extends Controller
 
     protected function _initialize()
     {
-        $userName = Session::get("admin");
-        dump($userName);
-        if (!isset($userName)) {
+        $admin = Session::get("admin");
+        if (!isset($admin)) {
             $this->redirect("Login/login");
         } else {
-            $this->project["userName"] = $userName;
+            $this->project["admin"] = $admin;
         }
 
     }

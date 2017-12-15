@@ -25,16 +25,17 @@
     </div>
     <table class="table table-hover text-center">
         <tr>
-            <?php
-                for($i=0;$i<$num;$i++){
-            ?>
-            <th><?php echo $header["col".$i]?></th>
-            <?php }?>
+            <?php while (list($key, $val) = each($header)) {
+                if(strpos($key,"col")!==false){
+           ?>
+            <th><?php echo $val?></th>
+            <?php }}?>
         </tr>
         <tr>
-            <?php for($j=0;$j<$num;$j++){?>
-            <td><?php echo $data["col".$j]?></td>
-            <?php }?>
+            <?php while (list($key, $val) = each($data)) {
+                if(strpos($key,"col")!==false){?>
+            <td><?php echo $val?></td>
+            <?php }}?>
         </tr>
     </table>
 </div>

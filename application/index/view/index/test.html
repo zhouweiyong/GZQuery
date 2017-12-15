@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<tr>
+    <?php
+                for($i=0;$i<$num;$i++){
+            ?>
+    <th><?php echo $header["col".$i]?></th>
+    <?php }?>
+</tr>
+<tr>
+    <?php for($j=0;$j<$num;$j++){?>
+    <td><?php echo $data["col".$j]?></td>
+    <?php }?>
+</tr>
+</body>
+</html>

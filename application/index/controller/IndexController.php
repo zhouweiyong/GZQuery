@@ -12,7 +12,8 @@ class IndexController extends BaseController
     {
         $email = Session::get("userName");
         $realName = Session::get("realName");
-        $list = Db::name("gz_data")->where("col0", $email)->select();
+        //限制只能看最近6个月的工资信息，按时间降序排
+        $list = Db::name("gz_data")->where("col0", $email)->order("gtime", "desc")->limit(6)->select();
         $this->assign("realName", $realName);
         $this->assign("userName", $email);
         $this->assign("list", $list);

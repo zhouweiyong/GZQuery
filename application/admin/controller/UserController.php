@@ -98,7 +98,7 @@ class UserController extends BaseController
         $userName = input("get.userName");
         $realName = input("get.realName");
 
-        $list = Db::name("gz_time")->where("userName", $userName)->order("loginTime","desc")->select();
+        $list = Db::name("gz_time")->where("userName", $userName)->order("loginTime", "desc")->select();
         $this->assign("realName", $realName);
         $this->assign("list", $list);
         return $this->fetch("time");
@@ -106,6 +106,13 @@ class UserController extends BaseController
 
     public function del()
     {
+        $userName = input("get.userName");
+        $delete = Db::name("gz_user")->where("userName", $userName)->delete();
+        if ($delete) {
+            $this->success("删除" . $userName . "成功");
+        } else {
+            $this->error("删除失败");
+        }
 
     }
 

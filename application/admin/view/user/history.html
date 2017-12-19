@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="renderer" content="webkit">
+    <title>员工登录记录</title>
+    <link rel="stylesheet" href="/static/css/pintuer.css">
+    <link rel="stylesheet" href="/static/css/admin.css">
+    <script src="/static/js/jquery.js"></script>
+    <script src="/static/js/pintuer.js"></script>
+    <script src="/static/js/datepicker.js"></script>
+    <style>
+        table {
+            margin-left: 10px;
+            border-collapse: separate;
+            border-spacing: 0px 10px;
+        }
+
+        table tr {
+
+        }
+        .un{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<div class="panel admin-panel">
+    <div class="panel-head"><strong><span class="icon-reorder"></span> 员工登录历史</strong></div>
+    <div class="body-content">
+        <table>
+            {volist name="list" id="time"}
+            <tr>
+                <td><a  class="un" href="{:url('User/showTime')}?userName={$time.userName}&realName={$time.realName}"
+                       target="_blank">{$time.realName}</a> 在 {$time.loginTime|date="Y-m-d H:i:s",###} 登录系统
+                </td>
+            </tr>
+            {/volist}
+        </table>
+    </div>
+</div>
+</body>
+</html>

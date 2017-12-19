@@ -35,7 +35,7 @@ class LoginController extends Controller
             Session::set("userName", $user["userName"]);
             Session::set("realName", $user["realName"]);
 
-            Db::name("gz_time")->insert(array("userName" => $userName, "loginTime" => time()), true);
+            Db::name("gz_time")->insert(array("userName" => $userName, "realName" => $user["realName"], "loginTime" => time()), true);
 
             $this->redirect("Index/index");
         } else {

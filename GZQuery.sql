@@ -113,6 +113,7 @@ CREATE TABLE gz_num (
 CREATE TABLE gz_time (
   id        INT(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
   userName  VARCHAR(80) NOT NULL,
+  realName  CHAR(20)    NOT NULL,
   loginTime INT(10)     NOT NULL
 )
   ENGINE = MyISAM

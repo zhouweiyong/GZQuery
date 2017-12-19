@@ -82,7 +82,7 @@ class UserController extends BaseController
         $realName = input("post.realName");
 
         if ($realName == "" && $realName == null) {
-            $list = Db::table("gz_user")->select();
+            $list = Db::table("gz_user")->order("userName", "asc")->select();
         } else {
             $list = Db::table("gz_user")->where("realName", $realName)->select();
         }
@@ -114,6 +114,13 @@ class UserController extends BaseController
             $this->error("删除失败");
         }
 
+    }
+
+
+    public function history(){
+        $list = Db::name("gz_time")->order("loginTime", "desc")->select();
+        $this->assign("list", $list);
+        return $this->fetch("history");
     }
 
 }

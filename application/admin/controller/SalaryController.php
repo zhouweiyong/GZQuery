@@ -33,7 +33,6 @@ class SalaryController extends BaseController
         $excel = $reader->load($info["tmp_name"]);
         $sheet = $excel->getSheet(0);
         $arr = $sheet->toArray();
-
         //判断是否添加过该月工资数据
         $numDb = Db::table("gz_num")->where("gtime", $gtime)->find();
         if ($numDb != null) {
@@ -46,10 +45,13 @@ class SalaryController extends BaseController
         $header = array();
         $header["gtime"] = $gtime;
         for ($i = 0; $i < $colLen; $i++) {
-            $header["col" . $i] = $arr[0][$i];
+            if ($arr[0][$i]!=null && !empty($arr[0][$i])){
+                $header["col" . $i] = $arr[0][$i];
+            }
         }
         $insert = Db::name("gz_header")->insert($header, true);
 
+        $len = sizeof($header);
         $data = array();
         //行数，包含空行，需要过滤
         $row = sizeof($arr);
@@ -58,7 +60,7 @@ class SalaryController extends BaseController
             if ($arr[$i][0] != null && !empty($arr[$i][0])) {
                 $tmp = array();
                 $tmp["gtime"] = $gtime;
-                for ($j = 0; $j < $colLen; $j++) {
+                for ($j = 0; $j < $len; $j++) {
                     $tmp["col" . $j] = $arr[$i][$j];
                 }
                 array_push($data, $tmp);
@@ -69,7 +71,7 @@ class SalaryController extends BaseController
         Db::name("gz_data")->insertAll($data, true);
 
 
-        Db::name("gz_num")->insert(array("gtime" => $gtime, "num" => $colLen));
+        Db::name("gz_num")->insert(array("gtime" => $gtime, "num" => $len));
 
         $this->success("该月工资数据添加成功");
     }

@@ -17,8 +17,9 @@
     </div>
     <div class="head-l"><a class="button button-little bg-green" href="{:url('index/Index/index')}"
                            target="_blank"><span class="icon-home"></span>
-        前台首页</a>&nbsp;&nbsp;<a class="button button-little bg-red" href="{:url('Login/logout')}"><span
-            class="icon-power-off"></span> 退出登录</a></div>
+        前台首页</a>&nbsp;&nbsp;<a href="{:url('Admin/modify')}" target="right" class="button button-little bg-blue"><span class="icon-wrench"></span> 修改管理员密码</a>
+        &nbsp;&nbsp;<a class="button button-little bg-red" href="{:url('Login/logout')}"><span
+                class="icon-power-off"></span> 退出登录</a></div>
 </div>
 <div class="leftnav">
     <div class="leftnav-title"><strong><span class="icon-list"></span>菜单列表</strong></div>
@@ -48,7 +49,7 @@
     });
 </script>
 <ul class="bread">
-    <li><a href="{:url('Index/index')}"  class="icon-home"> 首页</a></li>
+    <li><a href="{:url('Index/index')}" class="icon-home"> 首页</a></li>
     <li><a href="##" id="a_leader_txt">网站信息</a></li>
     <li><b>当前语言：</b><span style="color:red;">中文</php></span>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;切换语言：<a href="##">中文</a> &nbsp;&nbsp;<a href="##">英文</a></li>

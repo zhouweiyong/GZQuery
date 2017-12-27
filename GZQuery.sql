@@ -1,6 +1,8 @@
 CREATE DATABASE gz_query
   CHARSET UTF8;
 
+USE gz_query;
+
 # 管理员
 CREATE TABLE gz_admin (
   id         INT(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT,

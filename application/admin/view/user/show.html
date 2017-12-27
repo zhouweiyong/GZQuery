@@ -20,7 +20,7 @@
             <ul class="search" style="padding-left:10px;">
                 <li>搜索：</li>
                 <li>
-                    <input type="text" placeholder="请员工姓名" name="realName" class="input"
+                    <input type="text" placeholder="员工姓名" name="realName" class="input"
                            style="width:250px; line-height:17px;display:inline-block"/>
                     <a href="javascript:void(0)" class="button border-main icon-search" id="search"> 搜索</a>
                 </li>
@@ -41,11 +41,10 @@
             <td>{$user.realName}</td>
             <td>{$user.userName}</td>
             <td>{$user.passWord}</td>
-            <td><a class="button border-main" href="{:url('User/showTime')}?userName={$user.userName}&realName={$user.realName}"
-                   target="_blank"><span
-                    class="icon-edit"></span>查看登录时间</a>
-                <a style="margin-left: 10px" class="button border-red"
-                   href="{:url('User/del')}?userName={$user.userName}"><span class="icon-trash-o"></span>删除</a></td>
+            <td>
+                <!--<a class="button border-red"-->
+                   <!--href="{:url('User/del')}?userName={$user.userName}"><span class="icon-trash-o"></span>删除</a></td>-->
+                <a href="{:url('User/del')}?userName={$user.userName}">删除</a></td>
         </tr>
         {/volist}
     </table>

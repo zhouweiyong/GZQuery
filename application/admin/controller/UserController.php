@@ -39,7 +39,7 @@ class UserController extends BaseController
         for ($i = 0; $i < $len; $i++) {
             if ($arr[$i][0] != null && !empty($arr[$i][0])) {
                 $tmp = array();
-                $tmp["userName"] = $arr[$i][0];
+                $tmp["userName"] = trim($arr[$i][0]);
                 $tmp["realName"] = $arr[$i][1];
                 $tmp["passWord"] = UserUtils::createPassword(8);
                 array_push($user, $tmp);
@@ -84,7 +84,7 @@ class UserController extends BaseController
         if ($realName == "" && $realName == null) {
             $list = Db::table("gz_user")->order("userName", "asc")->select();
         } else {
-            $list = Db::table("gz_user")->where("realName", $realName)->select();
+            $list = Db::table("gz_user")->whereLike("realName", "%".$realName."%")->select();
         }
 
         $this->assign("list", $list);

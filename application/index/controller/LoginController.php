@@ -37,6 +37,14 @@ class LoginController extends Controller
 
             Db::name("gz_time")->insert(array("userName" => $userName, "realName" => $user["realName"], "loginTime" => time()), true);
 
+            $now = date("Ym");
+            $d = Db::name("gz_lnum")->where("gtime", $now)->find();
+            if ($d != null) {
+                Db::name("gz_lnum")->where("gtime", $now)->update(["lnum" => $d["lnum"] + 1,"lastTime"=>time()]);
+            } else {
+                Db::name("gz_lnum")->insert(["gtime" => $now, "lnum" => 1,"lastTime"=>time()]);
+            }
+
             $this->redirect("Index/index");
         } else {
             $this->redirect("Login/login", ["tip" => urlencode("用户名或者密码错误！")]);

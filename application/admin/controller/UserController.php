@@ -98,7 +98,7 @@ class UserController extends BaseController
         $userName = input("get.userName");
         $realName = input("get.realName");
 
-        $list = Db::name("gz_time")->where("userName", $userName)->order("loginTime", "desc")->select();
+        $list = Db::name("gz_time")->where("userName", $userName)->order("loginTime", "desc")->limit(100)->select();
         $this->assign("realName", $realName);
         $this->assign("list", $list);
         return $this->fetch("time");
@@ -118,7 +118,7 @@ class UserController extends BaseController
 
 
     public function history(){
-        $list = Db::name("gz_time")->order("loginTime", "desc")->select();
+        $list = Db::name("gz_time")->order("loginTime", "desc")->limit(200)->select();
         $this->assign("list", $list);
         return $this->fetch("history");
     }

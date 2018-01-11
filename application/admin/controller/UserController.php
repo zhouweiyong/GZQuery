@@ -118,7 +118,7 @@ class UserController extends BaseController
 
 
     public function history(){
-        $list = Db::name("gz_time")->order("loginTime", "desc")->limit(200)->select();
+        $list = Db::name("gz_time")->order("loginTime", "desc")->limit(1000)->select();
         $this->assign("list", $list);
         return $this->fetch("history");
     }

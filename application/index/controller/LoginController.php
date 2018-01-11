@@ -28,8 +28,8 @@ class LoginController extends Controller
 
     function doLogin()
     {
-        $userName = input("post.name");
-        $pwd = input("post.password");
+        $userName = trim(input("post.name"));
+        $pwd = trim(input("post.password"));
         $user = User::get(["userName" => $userName]);
         if (isset($user) && $user["passWord"] == $pwd) {
             Session::set("userName", $user["userName"]);

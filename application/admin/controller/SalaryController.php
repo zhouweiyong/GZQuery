@@ -79,7 +79,7 @@ class SalaryController extends BaseController
 //所有工资列表
     public function gzlist()
     {
-        $list = Db::table("gz_num")->select();
+        $list = Db::table("gz_num")->order("gtime","desc")->select();
         $this->assign("list", $list);
         return $this->fetch();
     }

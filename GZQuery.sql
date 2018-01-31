@@ -122,10 +122,11 @@ CREATE TABLE gz_time (
   DEFAULT CHARACTER SET = utf8;
 
 #每月登录次数
+#2018年1月31日修改lnum类型为int
 CREATE TABLE gz_lnum (
-  id    INT(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-  gtime CHAR(6) NOT NULL,
-  lnum   TINYINT NOT NULL             DEFAULT 0,
+  id       INT(10) UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+  gtime    CHAR(6) NOT NULL,
+  lnum     INT     NOT NULL             DEFAULT 0,
   lastTime INT(10) NOT NULL
 )
   ENGINE = MyISAM
